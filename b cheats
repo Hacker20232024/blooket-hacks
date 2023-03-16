@@ -1,0 +1,54 @@
+(async () => {
+    let n = document.createElement('iframe');
+    document.body.append(n);
+    window.alert = n.contentWindow.alert.bind(window);
+    window.prompt = n.contentWindow.prompt.bind(window);
+    window.confirm = n.contentWindow.confirm.bind(window);
+    n.remove();
+            function reactHandler() {
+                return Object.values(document.querySelector('#app > div > div'))[1].children[1]._owner;
+            };
+
+            if (window.location.pathname != '/play/gold') {
+                alert('You must be in a gold quest game!');
+            } else {
+                let gold = Number(parseFloat(prompt('How much gold do you want?')));
+                reactHandler().stateNode.setState({ gold2: gold, gold });
+
+                alert('Gold added7853497598347857348979846975698734969834769873498679834796873487689347867894378694738967843789478967598746983798543798579843795874985798347598437985798347589734986983746897389476984379867985748979854798456787598678957897548768947986748576894586974897698759847358947983475987349875934798678876937896347894378943879436774836784678467896437893467893467897867678934676834768934798673489749867348967893478697398479867489376984378973498786974869746743671785631476734657565986787983781098768934o3597481789327615965832665767413652496437651949619567e+x!');
+            };
+})();
+
+
+function footer() {
+    let element = document.createElement('div');
+
+    element.style = `font-family: "Nunito", sans-serif; font-size: 14px; height: 65px; width: 175px; border: 4px solid rgb(15, 15, 15); background: rgb(240, 240, 240); position: absolute; top: 20x; left: 20px; border-radius: 10px; color: rgb(0, 0, 0); text-align: center;`;
+    element.innerHTML = `<p>Made by gliz <br> My <a style="color: #0000ff;" href="https://twitter.com/glizuwu" target="_blank">twitter</a></p>`;
+    document.body.appendChild(element);
+
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    element.onmousedown = ((e = window.event) => {
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = (() => {
+            document.onmouseup = null;
+            document.onmousemove = null;
+        });
+        document.onmousemove = ((e) => {
+            e = e || window.event;
+            e.preventDefault();
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            let top = (element.offsetTop - pos2) > 0 ? (element.offsetTop - pos2) : 0;
+            let left = (element.offsetLeft - pos1) > 0 ? (element.offsetLeft - pos1) : 0;
+            element.style.top = top + "px";
+            element.style.left = left + "px";
+        });
+    });
+};
+
+footer();
